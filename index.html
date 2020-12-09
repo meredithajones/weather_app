@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     
-    <!-- Link all styles and icons -->
+  <!-- Link all styles and icons -->
 <!-- Bootstrap link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -23,6 +23,7 @@
     <title>Weather App</title>
 </head>
 <body>
+  <!-- Put the weather content into a container -->
     <!-- create two rows -->
     <div class="container">
         <div class="row">
@@ -35,6 +36,7 @@
               Search for a City:
             <input class="SearchCity"><i class="fa fa-search"></i>
           </div>
+          
           <!-- </button> -->
           <!-- </div> -->
           <div class="col-sm-9">
@@ -45,6 +47,7 @@
               <!-- Row for Current Weather -->
                 <div class="col-sm-12">
                     <div class="card CurrentWeather" style="width: 100%;">
+                      <!-- Put the current weather display into a card -->
                         <div class="card-body">
                           <h5 id="TitleCity" class="card-title">Name of city</h5>
                           <p id="Temp" class="card-text">Temperature</p>
@@ -66,6 +69,7 @@
               <!--Row for 5Days Weather-->
                 <div class="col-sm-2.4 mx-2">
                   <div class="Forecast1" style="width: 100%;">
+                    <!-- Put each day of the 5 day forecast into a card -->
                     <div class="card-body">
                       <p id="Date1" class="card-title">Date</p>
                       <p id="icon1"></p>
