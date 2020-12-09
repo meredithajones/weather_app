@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Link all styles and icons -->
+<!-- Bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+<!-- Css link -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="script.js"></script>
+
+    <title>Weather App</title>
+</head>
+<body>
+    <!-- create two rows -->
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12 header">
+            Weather Dashboard
+          </div>
+        </div>
+        <div class="row">
+          <div id="CityList" class="col-sm-3">
+              Search for a City:
+            <input class="SearchCity"><i class="fas fa-search"></i>
+          </div>
+          <div class="col-sm-9">
+
+            <!-- subrows -->
+            <div class="row">
+
+              <!-- Row for Current Weather -->
+                <div class="col-sm-12">
+                    <div class="card CurrentWeather" style="width: 100%;">
+                        <div class="card-body">
+                          <h5 id="TitleCity" class="card-title">Name of city</h5>
+                          <p id="Temp" class="card-text">Temperature</p>
+                          <p id="Humidity" class="card-text">Humidity</p>
+                          <p id="Wind" class="card-text">WindSpeed</p>
+                          <p id="UVIndex" class="card-text">UV Index</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="row TitleFiveDay">
+              <!--Row to display title 5 day forecast-->
+                <div class="col-sm-12">
+                  5 Day Forecast:
+                </div>
+            </div>
+
+            <div class="row FiveDays">
+              <!--Row for 5Days Weather-->
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast1" style="width: 100%;">
+                    <div class="card-body">
+                      <p id="Date1" class="card-title">Date</p>
+                      <p id="icon1"></p>
+                      <p id="Temp1" class="card-text">Temperature</p>
+                      <p id="Humidity1" class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast2" style="width: 100%;">
+                    <div class="card-body">
+                      <p id="Date2" class="card-title">Date</p>
+                      <p id="icon2"></p>
+                      <p id="Temp2" class="card-text">Temperature</p>
+                      <p id="Humidity2" class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast3" style="width: 100%;">
+                    <div class="card-body">
+                      <p id="Date3" class="card-title">Date</p>
+                      <p id="icon3"></p>
+                      <p id="Temp3" class="card-text">Temperature</p>
+                      <p id="Humidity3" class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast4" style="width: 100%;">
+                    <div class="card-body">
+                      <p id="Date4" class="card-title">Date</p>
+                      <p id="icon4"></p>
+                      <p id="Temp4" class="card-text">Temperature</p>
+                      <p id="Humidity4" class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast5" style="width: 100%;">
+                    <div class="card-body">
+                      <p id="Date5" class="card-title">Date</p>
+                      <p id="icon5"></p>
+                      <p id="Temp5" class="card-text">Temperature</p>
+                      <p id="Humidity5" class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

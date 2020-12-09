@@ -1,0 +1,81 @@
+.header {
+    background-color: rgb(119, 48, 151);
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 3%;
+}
+.SearchCity {
+    margin-top: 2%;
+}
+.fas {
+    margin-left: 1%;
+    background-color: lightseagreen;
+    border-radius: 10px;
+    padding: 4%;
+    cursor: pointer;
+}
+
+.CurrentWeather {
+    margin-bottom: 3%;
+}
+
+.Forecast1 {
+    background-color: rgba(34, 167, 240, 1);
+    color: White;
+    margin-right: 1.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.Forecast2 {
+    background-color: rgba(34, 167, 240, 1);
+    color: White;
+    margin-right: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.Forecast3 {
+    background-color: rgba(34, 167, 240, 1);
+    color: White;
+    margin-right: 1.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.Forecast4 {
+    background-color: rgba(34, 167, 240, 1);
+    color: White;
+    margin-right: 1.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.Forecast5 {
+    background-color: rgba(34, 167, 240, 1);
+    color: White;
+    margin-right: 1.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.TitleFiveDay {
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+
+.Clickable {
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+    cursor: pointer;
+}
+
+/* #UVIndex {
+    background-color: red;
+    color: white
+} */
