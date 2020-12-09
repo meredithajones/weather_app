@@ -1,3 +1,5 @@
+
+
 .header {
     background-color: rgb(119, 48, 151);
     color: white;
@@ -8,9 +10,9 @@
 .SearchCity {
     margin-top: 2%;
 }
-.fas {
+.fa {
     margin-left: 1%;
-    background-color: lightseagreen;
+    background-color: rgb(32, 144, 178);
     border-radius: 10px;
     padding: 4%;
     cursor: pointer;
@@ -18,6 +20,7 @@
 
 .CurrentWeather {
     margin-bottom: 3%;
+    background-color: rgb(204, 224, 230);
 }
 
 .Forecast1 {
