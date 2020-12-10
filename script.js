@@ -19,7 +19,7 @@ $(document).ready(function(){
         Cities.push(userCity);
 
         //use JSON to make a string from the cities in the Cities Array
-        localStorage.setItem("CitiesNames", JSON.stringify(Cities));
+        localStorage.setItem("CityNames", JSON.stringify(Cities));
 
         //Display the cities that have been searched below the search bar
 
@@ -29,23 +29,23 @@ $(document).ready(function(){
          // userCity to function WeatherApi so it can use it
          WeatherApi(userCity);
 
-        //If "CitiesNames" doesn't exist in localstorage, 
-        //Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
+        //If "CityNames" doesn't exist in localstorage, 
+        //Cities will be null. 
+        //If Cities is null, Cities.length will create an error. 
+        //Setting up an if statement so that If Cities = null, initialize Cities anyway.
         if (Cities == null) {
             Cities = [];
             }
             console.log(Cities);
         
-        // userCity to function WeatherApi so it can use it
-        // WeatherApi(userCity);
-        // $(".SearchCity").val("");
+
     }
 
     //Create function to list the cities already searched 
     // and stored in localStorage
     function CitiesList() {
         //Convert the String into a JSON object
-        Cities = JSON.parse(localStorage.getItem("CitiesNames"));
+        Cities = JSON.parse(localStorage.getItem("CityNames"));
 
     //If "CitiesNames" doesn't exist in localstorage, Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
     if (Cities == null) {
@@ -84,7 +84,7 @@ $(document).ready(function(){
             url: queryURL,
             method: "GET"
         })
-            // Store all of the data inside of an object called "response"
+            // Store all of the data from the API inside of an object called "response"
             .then(function(response) {
                 console.log ("the response" + response);
 
@@ -95,7 +95,7 @@ $(document).ready(function(){
                 var SecondDay = "http://openweathermap.org/img/wn/"+response.list[14].weather[0].icon+"@2x.png";
                 var ThirdDay = "http://openweathermap.org/img/wn/"+response.list[22].weather[0].icon+"@2x.png";
                 var FourthDay = "http://openweathermap.org/img/wn/"+response.list[30].weather[0].icon+"@2x.png";
-                var FithDay = "http://openweathermap.org/img/wn/"+response.list[38].weather[0].icon+"@2x.png";
+                var FifthDay = "http://openweathermap.org/img/wn/"+response.list[38].weather[0].icon+"@2x.png";
         
                 //Store the weather icons in variables below
                 var IconMain = $('<img src=" '+ CurrentIcon +' "/>');
@@ -103,7 +103,7 @@ $(document).ready(function(){
                 var IconSecond = $('<img src=" '+ SecondDay +' "/>');
                 var IconThird = $('<img src=" '+ ThirdDay +' "/>');
                 var IconFourth = $('<img src=" '+ FourthDay +' "/>');
-                var IconFifth = $('<img src=" '+ FithDay +' "/>');
+                var IconFifth = $('<img src=" '+ FifthDay +' "/>');
 
                 //Current weather
                 //Data for adding to the html 
@@ -124,31 +124,32 @@ $(document).ready(function(){
 
                 //First day current weather.
                 console.log(new Date().toLocaleDateString())
+
                 //response.list[6].dt_txt.substr(0, 10)
                 $("#Date1").text(new Date().toLocaleDateString());
                 $("#icon1").empty().append(IconFirst);
                 $("#Temp1").text("Temp: " + ((response.list[6].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity1").text("Humidity: " + response.list[6].main.humidity + " %");
 
-                //Second day after current weather. Info display from mid-day information
+                //Second day forecast
                 $("#Date2").text(response.list[14].dt_txt.substr(0, 10));
                 $("#icon2").empty().append(IconSecond);
                 $("#Temp2").text("Temp: " + ((response.list[14].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity2").text("Humidity: " + response.list[14].main.humidity + " %");
 
-                //3nd day after current weather. Info display from mid-day information
+                //3rd day forecast
                 $("#Date3").text(response.list[22].dt_txt.substr(0, 10));
                 $("#icon3").empty().append(IconThird);
                 $("#Temp3").text("Temp: " + ((response.list[22].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity3").text("Humidity: " + response.list[22].main.humidity + " %");
 
-                //4nd day after current weather. Info display from mid-day information
+                //4th day forecast
                 $("#Date4").text(response.list[30].dt_txt.substr(0, 10));
                 $("#icon4").empty().append(IconFourth);
                 $("#Temp4").text("Temp: " + ((response.list[30].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity4").text("Humidity: " + response.list[30].main.humidity + " %");
 
-                //5nd day after current weather. Info display from mid-day information
+                //5th day forecast 
                 $("#Date5").text(response.list[38].dt_txt.substr(0, 10));
                 $("#icon5").empty().append(IconFifth);
                 $("#Temp5").text("Temp: " + ((response.list[38].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
@@ -164,7 +165,7 @@ $(document).ready(function(){
         var accessURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=hourly,daily&appid=" + APIKey;
 
         
-        // Running the AJAX call to the OpenWeatherMap API
+        // Running the AJAX call to the OpenWeatherMap API to get the UV index
         $.ajax({
             url: accessURL,
             method: "GET"
@@ -177,7 +178,9 @@ $(document).ready(function(){
                 
                 //Showing the UVIndex
                 $("#UVIndex").text("UV Index: " + UVI);
-                
+
+            //Setting up an if statement to style the background color 
+            //of our main weather display so that it changes depending on the UV index. 
                 if (UVI <= 1.99) {                  
                     UVI = $(".card-body").css({"background-color": "lightgreen", "display": "inline", "padding": "1%", "border-radius": "10px"});
                 } else if (UVI >= 2 & UVI <= 5.99) {
@@ -203,7 +206,7 @@ $(document).ready(function(){
     //   console.log(response);
     //  }
 
-    //function to activate click search on stored cities
+    //function to activate on click search on stored cities
     function clickOnCities() {
         //Store the name value of the city within $(this) to the var userCity.
         var userCity = $(this)[0].innerHTML;
@@ -214,7 +217,7 @@ $(document).ready(function(){
     }
     WeatherApi("Philadelphia"); 
 
-    //Call the function
+    //Calling the function
     $(".fa").on("click", GetInput);
     $(document).on("click", ".Clickable", clickOnCities);
 
@@ -228,5 +231,9 @@ $(document).ready(function(){
     //Call Function when the page loads.
     CitiesList();
 
+    // userCity to function WeatherApi so it can use it
+        // WeatherApi(userCity);
+        // $(".SearchCity").val("");
 
-}); // End of ready(function())
+
+}); // Closing out the ready(function())
