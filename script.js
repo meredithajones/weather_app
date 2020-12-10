@@ -26,6 +26,11 @@ $(document).ready(function(){
         var SearchedCities = $("<div>").text(userCity).addClass("Clickable");
         $("#CityList").append(SearchedCities);
 
+        //If "CitiesNames" doesn't exist in localstorage, Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
+        if (Cities == null) {
+            Cities = [];
+            }
+            console.log(Cities);
         
         
         // userCity to function WeatherApi so it can use it
