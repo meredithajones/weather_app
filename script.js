@@ -47,7 +47,7 @@ $(document).ready(function(){
         //Convert the String into a JSON object
         Cities = JSON.parse(localStorage.getItem("CityNames"));
 
-    //If "CitiesNames" doesn't exist in localstorage, Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
+    //If "CityNames" doesn't exist in localstorage, Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
     if (Cities == null) {
         Cities = [];
         }
@@ -90,20 +90,22 @@ $(document).ready(function(){
 
                 //Adding weather icons 
                 //create URLs to get icons from Openweather API
-                var CurrentIcon = "http://openweathermap.org/img/wn/"+response.list[0].weather[0].icon+"@2x.png";
-                var FirstDay = "http://openweathermap.org/img/wn/"+response.list[6].weather[0].icon+"@2x.png";
-                var SecondDay = "http://openweathermap.org/img/wn/"+response.list[14].weather[0].icon+"@2x.png";
-                var ThirdDay = "http://openweathermap.org/img/wn/"+response.list[22].weather[0].icon+"@2x.png";
-                var FourthDay = "http://openweathermap.org/img/wn/"+response.list[30].weather[0].icon+"@2x.png";
-                var FifthDay = "http://openweathermap.org/img/wn/"+response.list[38].weather[0].icon+"@2x.png";
+                var CurrentDay = "http://openweathermap.org/img/wn/"+response.list[0].weather[0].icon+"@2x.png";
+                var DayOne = "http://openweathermap.org/img/wn/"+response.list[6].weather[0].icon+"@2x.png";
+                var DayTwo = "http://openweathermap.org/img/wn/"+response.list[14].weather[0].icon+"@2x.png";
+                var DayThree = "http://openweathermap.org/img/wn/"+response.list[22].weather[0].icon+"@2x.png";
+                var DayFour = "http://openweathermap.org/img/wn/"+response.list[30].weather[0].icon+"@2x.png";
+                var DayFive = "http://openweathermap.org/img/wn/"+response.list[38].weather[0].icon+"@2x.png";
         
+
                 //Store the weather icons in variables below
-                var IconMain = $('<img src=" '+ CurrentIcon +' "/>');
-                var IconFirst = $('<img src=" '+ FirstDay +' "/>');
-                var IconSecond = $('<img src=" '+ SecondDay +' "/>');
-                var IconThird = $('<img src=" '+ ThirdDay +' "/>');
-                var IconFourth = $('<img src=" '+ FourthDay +' "/>');
-                var IconFifth = $('<img src=" '+ FifthDay +' "/>');
+                //Add self closing tags at the end of each
+                var IconMain = $('<img src=" '+ CurrentDay +' "/>');
+                var IconFirst = $('<img src=" '+ DayOne +' "/>');
+                var IconSecond = $('<img src=" '+ DayTwo +' "/>');
+                var IconThird = $('<img src=" '+ DayThree +' "/>');
+                var IconFourth = $('<img src=" '+ DayFour +' "/>');
+                var IconFifth = $('<img src=" '+ DayFive +' "/>');
 
                 //Current weather
                 //Data for adding to the html 
@@ -217,9 +219,17 @@ $(document).ready(function(){
     }
     WeatherApi("Philadelphia"); 
 
-    //Calling the function
+    Calling the function
     $(".fa").on("click", GetInput);
     $(document).on("click", ".Clickable", clickOnCities);
+
+    // Tryng to set up the search to function with both a click and enter key
+    // $(".fa").keypress(function(event) { 
+    //     if (event.keyCode === 13) { 
+    //         $(".fa").on("click", GetInput);
+    //         $(document).on("click", ".Clickable", clickOnCities); 
+    //     } 
+    // }); 
 
     // $(document).ready(function() {
     //     $("fa").keyup(function(event) {
