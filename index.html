@@ -16,6 +16,8 @@
 <!-- Css link -->
     <link rel="stylesheet" href="style.css" />
 
+    <!-- Linking JQuery -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="script.js"></script>
@@ -36,20 +38,21 @@
               Search for a City:
             <input class="SearchCity"><i class="fa fa-search"></i>
           </div>
-          
+
           <!-- </button> -->
           <!-- </div> -->
           <div class="col-sm-9">
 
-            <!-- subrows -->
+            <!-- rows under the search bar-->
             <div class="row">
 
               <!-- Row for Current Weather -->
                 <div class="col-sm-12">
                     <div class="card CurrentWeather" style="width: 100%;">
                       <!-- Put the current weather display into a card -->
+                      <!-- Need to display: City Name, current date, tempurature, humidity, wind speed, and UVindex -->
                         <div class="card-body">
-                          <h5 id="TitleCity" class="card-title">Name of city</h5>
+                          <h5 id="MainCity" class="card-title">Name of city</h5>
                           <p id="Temp" class="card-text">Temperature</p>
                           <p id="Humidity" class="card-text">Humidity</p>
                           <p id="Wind" class="card-text">WindSpeed</p>
@@ -69,7 +72,10 @@
               <!--Row for 5Days Weather-->
                 <div class="col-sm-2.4 mx-2">
                   <div class="Forecast1" style="width: 100%;">
+
+
                     <!-- Put each day of the 5 day forecast into a card -->
+                    <!-- First Day -->
                     <div class="card-body">
                       <p id="Date1" class="card-title">Date</p>
                       <p id="icon1"></p>
@@ -78,6 +84,8 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- Second Day -->
                 <div class="col-sm-2.4 mx-2">
                   <div class="Forecast2" style="width: 100%;">
                     <div class="card-body">
@@ -88,6 +96,9 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- Third Day
+               -->
                 <div class="col-sm-2.4 mx-2">
                   <div class="Forecast3" style="width: 100%;">
                     <div class="card-body">
@@ -98,6 +109,8 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- Fourth Day -->
                 <div class="col-sm-2.4 mx-2">
                   <div class="Forecast4" style="width: 100%;">
                     <div class="card-body">
@@ -108,6 +121,8 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- Fifth Day -->
                 <div class="col-sm-2.4 mx-2">
                   <div class="Forecast5" style="width: 100%;">
                     <div class="card-body">
