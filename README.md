@@ -1,4 +1,5 @@
 Meredith Jones- Weather App
+===================================
 
 I created this weather app to function as an easy reference for travelers who would like to see what the weather is/will be for the next 5 days in cities that they are considering visiting. In addition, cities that have been searched are stored in local storage on the site and displayed beneath the search bar for easy reference. If the user clicks on the city where it has been stored, the weather information will once again appear. 
 
