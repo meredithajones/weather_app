@@ -26,16 +26,19 @@ $(document).ready(function(){
         var SearchedCities = $("<div>").text(userCity).addClass("Clickable");
         $("#CityList").append(SearchedCities);
 
-        //If "CitiesNames" doesn't exist in localstorage, Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
+         // userCity to function WeatherApi so it can use it
+         WeatherApi(userCity);
+
+        //If "CitiesNames" doesn't exist in localstorage, 
+        //Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
         if (Cities == null) {
             Cities = [];
             }
             console.log(Cities);
         
-        
         // userCity to function WeatherApi so it can use it
-        WeatherApi(userCity);
-        $(".SearchCity").val("");
+        // WeatherApi(userCity);
+        // $(".SearchCity").val("");
     }
 
     //Create function to list the cities already searched 
@@ -43,6 +46,12 @@ $(document).ready(function(){
     function CitiesList() {
         //Convert the String into a JSON object
         Cities = JSON.parse(localStorage.getItem("CitiesNames"));
+
+    //If "CitiesNames" doesn't exist in localstorage, Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
+    if (Cities == null) {
+        Cities = [];
+        }
+        console.log(Cities);
     
 
         //Loop through the array of Cities created
