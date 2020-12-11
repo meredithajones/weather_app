@@ -88,7 +88,8 @@ $(document).ready(function(){
             .then(function(response) {
                 console.log ("the response" + response);
 
-                //Adding weather icons 
+                //Adding weather icons
+                //Need variables for each day 
                 //create URLs to get icons from Openweather API
                 var CurrentDay = "http://openweathermap.org/img/wn/"+response.list[0].weather[0].icon+"@2x.png";
                 var DayOne = "http://openweathermap.org/img/wn/"+response.list[6].weather[0].icon+"@2x.png";
@@ -98,7 +99,7 @@ $(document).ready(function(){
                 var DayFive = "http://openweathermap.org/img/wn/"+response.list[38].weather[0].icon+"@2x.png";
         
 
-                //Store the weather icons in variables below
+                //Store the weather icons in variables below, need one variable for each day.
                 //Add self closing tags at the end of each
                 var IconMain = $('<img src=" '+ CurrentDay +' "/>');
                 var IconFirst = $('<img src=" '+ DayOne +' "/>');
@@ -125,7 +126,8 @@ $(document).ready(function(){
                 WeatherUVI(latitude, longitude)
 
                 //First day current weather.
-                console.log(new Date().toLocaleDateString())
+                // Trying to reformat the date displays
+                // console.log(new Date().toLocaleDateString())
 
                 //response.list[6].dt_txt.substr(0, 10)
                 $("#Date1").text(new Date().toLocaleDateString());
@@ -164,7 +166,8 @@ $(document).ready(function(){
     function WeatherUVI(latitude,longitude) {  
                  
         //Build the URL we need to get the UVindex information
-        var accessURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=hourly,daily&appid=" + APIKey;
+        var accessURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + 
+        latitude + "&lon=" + longitude + "&exclude=hourly,daily&appid=" + APIKey;
 
         
         // Running the AJAX call to the OpenWeatherMap API to get the UV index
@@ -183,6 +186,7 @@ $(document).ready(function(){
 
             //Setting up an if statement to style the background color 
             //of our main weather display so that it changes depending on the UV index. 
+            //low index:lightgreen, higher: yellow, higher: orange, highest: red
                 if (UVI <= 1.99) {                  
                     UVI = $(".card-body").css({"background-color": "lightgreen", "display": "inline", "padding": "1%", "border-radius": "10px"});
                 } else if (UVI >= 2 & UVI <= 5.99) {
@@ -219,7 +223,7 @@ $(document).ready(function(){
     }
     WeatherApi("Philadelphia"); 
 
-    Calling the function
+    //Calling the function
     $(".fa").on("click", GetInput);
     $(document).on("click", ".Clickable", clickOnCities);
 
@@ -246,4 +250,4 @@ $(document).ready(function(){
         // $(".SearchCity").val("");
 
 
-}); // Closing out the ready(function())
+});

@@ -1,8 +1,8 @@
 
 
 .header {
-    background-color: rgb(119, 48, 151);
-    color: white;
+    background-color:rgb(152, 184, 189);;
+    color: rgb(15, 15, 15);
     text-align: center;
     font-size: 3em;
     margin-bottom: 3%;
@@ -24,49 +24,56 @@
 }
 
 .Forecast1 {
-    background-color: rgba(34, 167, 240, 1);
+    background-color: rgb(88, 178, 226);
     color: White;
-    margin-right: 1.5%;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    align-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left:2%
 }
 
 .Forecast2 {
-    background-color: rgba(34, 167, 240, 1);
+    background-color: rgb(88, 178, 226);
     color: White;
     margin-right: 5%;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .Forecast3 {
-    background-color: rgba(34, 167, 240, 1);
+    background-color: rgb(88, 178, 226);
     color: White;
     margin-right: 1.5%;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .Forecast4 {
-    background-color: rgba(34, 167, 240, 1);
+    background-color: rgb(88, 178, 226);
     color: White;
     margin-right: 1.5%;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .Forecast5 {
-    background-color: rgba(34, 167, 240, 1);
+    background-color: rgb(88, 178, 226);
     color: White;
     margin-right: 1.5%;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    
+}
+
+.FiveDay {
+    background-color: rgb(152, 184, 189);
 }
 
 .TitleFiveDay {
     font-weight: bold;
     margin-bottom: 2%;
 }
+
 
 .Clickable {
     border-style: solid;
@@ -78,7 +85,3 @@
     cursor: pointer;
 }
 
-/* #UVIndex {
-    background-color: red;
-    color: white
-} */
