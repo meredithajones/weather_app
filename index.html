@@ -18,15 +18,14 @@
 
     <!-- Linking JQuery -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 <script src="script.js"></script>
 
-    <title>Weather App</title>
+    <title>Meredith Weather App</title>
 </head>
 <body>
-  <!-- Put the weather content into a container -->
-    <!-- create two rows -->
+  <!-- Put all the the weather content into a container -->
+    <!-- create rows inside the container -->
     <div class="container">
         <div class="row">
           <div class="col-sm-12 header">
@@ -46,9 +45,10 @@
             <!-- rows under the search bar-->
             <div class="row">
 
-              <!-- Row for Current Weather -->
+              <!-- Row for the Current Weather -->
                 <div class="col-sm-12">
                     <div class="card CurrentWeather" style="width: 100%;">
+
                       <!-- Put the current weather display into a card -->
                       <!-- Need to display: City Name, current date, tempurature, humidity, wind speed, and UVindex -->
                         <div class="card-body">
@@ -69,9 +69,10 @@
                 </div>
             </div>
 
-            <div class="row FiveDays">
-              <!--Row for 5Days Weather-->
-                <div class="col-sm-2.4 mx-2">
+            <div class="Row fiveDayForecast">
+              <!--Row for 5Day Weather-->
+              <section class ="d-inline-flex flex-column flex-md-row">  
+                <div class="col-sm-2.9 mx-2">
                   <div class="Forecast1" style="width: 100%;">
 
 
@@ -85,8 +86,10 @@
                     </div>
                   </div>
                 </div>
+              </section>
 
                 <!-- Second Day -->
+                <section class="d-inline-flex flex-column flex-md-row">
                 <div class="col-sm-2.8 mx-2">
                   <div class="Forecast2" style="width: 100%;">
                     <div class="card-body">
@@ -97,9 +100,11 @@
                     </div>
                   </div>
                 </div>
+              </section>
 
                 <!-- Third Day
                -->
+               <section class= "d-inline-flex flex-column flex-md-row">
                 <div class="col-sm-2.8 mx-2">
                   <div class="Forecast3" style="width: 100%;">
                     <div class="card-body">
@@ -110,8 +115,10 @@
                     </div>
                   </div>
                 </div>
+              </section>
 
                 <!-- Fourth Day -->
+                <section class= "d-inline-flex flex-column flex-md-row">
                 <div class="col-sm-2.8 mx-2">
                   <div class="Forecast4" style="width: 100%;">
                     <div class="card-body">
@@ -122,8 +129,10 @@
                     </div>
                   </div>
                 </div>
+              </section>
 
                 <!-- Fifth Day -->
+                <section class= "d-inline-flex flex-column flex-md-row">
                 <div class="col-sm-2.8 mx-2">
                   <div class="Forecast5" style="width: 100%;">
                     <div class="card-body">
@@ -140,5 +149,6 @@
       </div>
     </div>
   </div>
+</section>
 </body>
 </html>

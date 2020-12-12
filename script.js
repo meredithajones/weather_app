@@ -47,14 +47,15 @@ $(document).ready(function(){
         //Convert the String into a JSON object
         Cities = JSON.parse(localStorage.getItem("CityNames"));
 
-    //If "CityNames" doesn't exist in localstorage, Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
+    //If "CityNames" doesn't exist in localstorage, then Cities will be null. 
+    // If Cities is null, (Cities.length) will give an error. If Cities = null, we need to finitialize Cities anyway.
     if (Cities == null) {
         Cities = [];
         }
         console.log(Cities);
     
 
-        //Loop through the array of Cities created
+        //Loop to populate the list of cities. 
         for (var i = 0; i < Cities.length; i++) {
             var CitiesToDisplay = Cities[i];
 
@@ -110,7 +111,8 @@ $(document).ready(function(){
 
                 //Current weather
                 //Data for adding to the html 
-                $("#MainCity").text(response.city.name + "  (" + response.list[0].dt_txt.substr(0, 10) + ")").append(IconMain); // Use substr(0, 10 to only retrieve date and not time from the WeatherAPI)
+                $("#MainCity").text(response.city.name + "  (" + response.list[0].dt_txt.substr(0, 10) + ")").append(IconMain);
+                // "Using  substr(0, 10)" to only retrieve a date and not time from the WeatherAPI)
                 
                 //Make sure that the tempurature displays in farenheight 
                 $("#Temp").text("Temperature: " + ((response.list[6].main.temp- 273.15) * 1.80 + 32).toFixed(2) + " F");
@@ -188,13 +190,13 @@ $(document).ready(function(){
             //of our main weather display so that it changes depending on the UV index. 
             //low index:lightgreen, higher: yellow, higher: orange, highest: red
                 if (UVI <= 1.99) {                  
-                    UVI = $(".card-body").css({"background-color": "lightgreen", "display": "inline", "padding": "1%", "border-radius": "10px"});
+                    UVI = $(".card-body").css({"background-color": "lightgreen", "display": "inline", "padding": "1%", "border-radius": "15px"});
                 } else if (UVI >= 2 & UVI <= 5.99) {
-                    UVI = $(".card-body").css({"background-color": "yellow", "display": "inline", "padding": "1%", "border-radius": "10px"});
+                    UVI = $(".card-body").css({"background-color": "yellow", "display": "inline", "padding": "1%", "border-radius": "15px"});
                 } else if (UVI >= 4 & UVI <= 7.99) {
-                    UVI = $(".card-body").css({"background-color": "orange", "display": "inline", "padding": "1%", "border-radius": "10px"});
+                    UVI = $(".card-body").css({"background-color": "orange", "display": "inline", "padding": "1%", "border-radius": "15px"});
                 } else if (UVI >= 6) {
-                    UVI = $(".card-body").css({"background-color": "red", "display": "inline", "padding": "1%", "border-radius": "10px"});
+                    UVI = $(".card-body").css({"background-color": "red", "display": "inline", "padding": "1%", "border-radius": "15px"});
                 };
 
             });
