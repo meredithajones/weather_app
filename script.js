@@ -5,7 +5,8 @@
 //until after the html finished loading(wrap everything in it)
 $(document).ready(function(){
    
-    var Cities = [];
+    //Setting up a variable to store all of the cities that have been searched. 
+    var Searches = [];
 
     //Create function for users to search for weather in a specific city
 
@@ -15,11 +16,11 @@ $(document).ready(function(){
         //create a variable to store the input from user searches
         var userCity = $(".SearchCity").val(); 
 
-        //Create the array of cities that have been searched for
-        Cities.push(userCity);
+        //Push the cities that have been searched to  the array of cities that have been searched for
+        Searches.push(userCity);
 
-        //use JSON to make a string from the cities in the Cities Array
-        localStorage.setItem("CityNames", JSON.stringify(Cities));
+        //use JSON to make a string from the cities in the Searches Array
+        localStorage.setItem("CityNames", JSON.stringify(Searches));
 
         //Display the cities that have been searched below the search bar
 
@@ -30,34 +31,26 @@ $(document).ready(function(){
          WeatherApi(userCity);
 
         //If "CityNames" doesn't exist in localstorage, 
-        //Cities will be null. 
-        //If Cities is null, Cities.length will create an error. 
-        //Setting up an if statement so that If Cities = null, initialize Cities anyway.
-        if (Cities == null) {
-            Cities = [];
-            }
-            console.log(Cities);
+        //Searches will be null. 
+        //If Searches is null, Searches.length will create an error. 
+        //Setting up an if statement so that If Searches = null, initialize Searches anyway.
+        if (Searches == null) {
+            SearchedCities = [];
+            } console.log(Searches);
         
 
     }
 
     //Create function to list the cities already searched 
     // and stored in localStorage
-    function CitiesList() {
+    function citiesSearched() {
         //Convert the String into a JSON object
-        Cities = JSON.parse(localStorage.getItem("CityNames"));
-
-    //If "CityNames" doesn't exist in localstorage, then Cities will be null. 
-    // If Cities is null, (Cities.length) will give an error. If Cities = null, we need to finitialize Cities anyway.
-    if (Cities == null) {
-        Cities = [];
-        }
-        console.log(Cities);
+        Searches = JSON.parse(localStorage.getItem("CityNames"));
     
 
         //Loop to populate the list of cities. 
-        for (var i = 0; i < Cities.length; i++) {
-            var CitiesToDisplay = Cities[i];
+        for (var i = 0; i < Searches.length; i++) {
+            var CitiesToDisplay = Searches[i];
 
             // Call them individually and then display in the list from local storage
             
@@ -225,7 +218,7 @@ $(document).ready(function(){
     }
     WeatherApi("Philadelphia"); 
 
-    //Calling the function
+    //calling the function on click of the search button
     $(".fa").on("click", GetInput);
     $(document).on("click", ".Clickable", clickOnCities);
 
@@ -245,7 +238,7 @@ $(document).ready(function(){
     //     });
 
     //Call Function when the page loads.
-    CitiesList();
+    citiesSearched();
 
     // userCity to function WeatherApi so it can use it
         // WeatherApi(userCity);
