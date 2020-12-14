@@ -8,13 +8,13 @@ $(document).ready(function(){
     //Setting up a variable to store all of the cities that have been searched. 
     var Searches = [];
 
-    //Create function for users to search for weather in a specific city
+    //Create a function for users to search for weather in a specific city
 
     function GetInput(event) {
         event.preventDefault();
 
         //create a variable to store the input from user searches
-        var userCity = $(".SearchCity").val(); 
+        var userCity = $(".citySearched").val(); 
 
         //Push the cities that have been searched to  the array of cities that have been searched for
         Searches.push(userCity);
@@ -73,6 +73,9 @@ $(document).ready(function(){
         var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + userCity + "&appid=" + APIKey;
         console.log(queryURL);
 
+        //Checking to make sure that dayjs is properly set up
+console.log(dayjs());
+
         // AJAX call to the OpenWeatherMap API
         $.ajax({
             url: queryURL,
@@ -81,6 +84,7 @@ $(document).ready(function(){
             // Store all of the data from the API inside of an object called "response"
             .then(function(response) {
                 console.log ("the response" + response);
+
 
                 //Adding weather icons
                 //Need variables for each day 
@@ -123,7 +127,12 @@ $(document).ready(function(){
                 //First day current weather.
                 // Trying to reformat the date displays
                 // console.log(new Date().toLocaleDateString())
+                
+                var today= new Date()
 
+
+              
+                       
                 //response.list[6].dt_txt.substr(0, 10)
                 $("#Date1").text(new Date().toLocaleDateString());
                 $("#icon1").empty().append(IconFirst);
@@ -131,25 +140,24 @@ $(document).ready(function(){
                 $("#Humidity1").text("Humidity: " + response.list[6].main.humidity + " %");
 
                 //Second day forecast
-                $("#Date2").text(response.list[14].dt_txt.substr(0, 10));
+                $("#date2").text(dayjs().add(2, 'days').format("MMM Do YY"));
                 $("#icon2").empty().append(IconSecond);
                 $("#Temp2").text("Temp: " + ((response.list[14].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity2").text("Humidity: " + response.list[14].main.humidity + " %");
 
                 //3rd day forecast
-                $("#Date3").text(response.list[22].dt_txt.substr(0, 10));
-                $("#icon3").empty().append(IconThird);
+                $("#date3").text(dayjs().add(3, 'days').format("MMM Do YY"));                $("#icon3").empty().append(IconThird);
                 $("#Temp3").text("Temp: " + ((response.list[22].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity3").text("Humidity: " + response.list[22].main.humidity + " %");
 
                 //4th day forecast
-                $("#Date4").text(response.list[30].dt_txt.substr(0, 10));
+                $("#date4").text(dayjs().add(4, 'days').format("MMM Do YY"));
                 $("#icon4").empty().append(IconFourth);
                 $("#Temp4").text("Temp: " + ((response.list[30].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity4").text("Humidity: " + response.list[30].main.humidity + " %");
 
                 //5th day forecast 
-                $("#Date5").text(response.list[38].dt_txt.substr(0, 10));
+                $("#date5").text(dayjs().add(5, 'days').format("MMM Do YY"));
                 $("#icon5").empty().append(IconFifth);
                 $("#Temp5").text("Temp: " + ((response.list[38].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity5").text("Humidity: " + response.list[38].main.humidity + " %");
